@@ -1,5 +1,8 @@
 #include "global.h"
 #include "freq.h"
+#include "seven_segment_display.h"
+#include <Math.h>
+
 
 char note_from_index(int index) {
   index = fmod(round(index), notes_count);
@@ -8,6 +11,25 @@ char note_from_index(int index) {
   }
 
   return notes[index];
+}
+
+void display_note(char note) {
+  displayLetter(note);
+}
+
+void display_alteration(int alt) {
+  if (alt == -1) {
+    //Serial.println("b");
+  } else if (alt == 1) {
+    //Serial.println("#");
+  } else {
+    //Serial.println();
+  }
+}
+
+void display_decimal_part(float decimal_part) {
+  //Serial.print(decimal_part);
+  //Serial.println();
 }
 
 void note_from_frequency(float freq) {
